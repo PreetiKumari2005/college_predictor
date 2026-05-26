@@ -2,19 +2,15 @@
   "name": "college-discovery",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  {
   "scripts": {
-    "build": "prisma generate && next build",
     "dev": "next dev",
+    "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint"
-  }
-}
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
   "dependencies": {
     "@prisma/adapter-pg": "^7.8.0",
     "@prisma/client": "^7.8.0",
@@ -35,7 +31,6 @@
     "postcss": "^8.5.15",
     "prisma": "^7.8.0",
     "tailwindcss": "^4.3.0",
-    "ts-node": "^10.9.2",
     "tsx": "^4.22.3",
     "typescript": "^6.0.3"
   }
