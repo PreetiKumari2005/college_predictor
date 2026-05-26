@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+/* Your custom styles below */
+:root {
+  --primary: #2563eb;
+  --background: #f8fafc;
+}
+
+body {
+  background: var(--background);
+}
+
+.custom-class {
+  color: var(--primary);
+}

@@ -1,0 +1,36 @@
+generator client {
+  provider        = "prisma-client-js"
+  output          = "../src/generated/client"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model College {
+  id           String   @id @default(uuid())
+  name         String
+  slug         String   @unique
+  location     String
+  state        String
+  fees         Float    // Annual Fees in INR
+  rating       Float    // Out of 5.0
+  placementAvg Float    // Average Package in LPA (Lakhs Per Annum)
+  placementMax Float    // Highest Package in LPA
+  imageUrl     String   @default("https://images.unsplash.com/photo-1562774053-701939374585")
+  cutoffs      Cutoff[]
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Cutoff {
+  id          String   @id @default(uuid())
+  collegeId   String
+  college     College  @relation(fields: [collegeId], references: [id], onDelete: Cascade)
+  exam        String   // e.g., "JEE_MAIN", "GATE"
+  branch      String   // e.g., "Computer Science", "Electrical"
+  closingRank Int
+  category    String   // e.g., "General", "OBC", "SC", "ST"
+  year        Int      @default(2025)
+}
